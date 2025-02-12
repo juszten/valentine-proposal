@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine? 💖</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: pink;
+            padding-top: 100px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+        }
+        h1 {
+            color: red;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .yes-btn {
+            background-color: #ff4d4d;
+            color: white;
+        }
+        .no-btn {
+            background-color: #ccc;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Will you be my Valentine? 💕</h1>
+        <button class="yes-btn" onclick="sayYes()">Yes 😍</button>
+        <button class="no-btn" onclick="askAgain()">No 😜</button>
+    </div>
+
+    <script>
+        let counter = 0;
+        function sayYes() {
+            alert("Yay! I knew you would say YES! ❤️🥰");
+        }
+
+        function askAgain() {
+            let messages = [
+                "Are you sure? 🥺",
+                "Think again! 🤨",
+                "Don't break my heart 💔",
+                "Pleaseee? 🥹",
+                "I won’t stop until you say yes 😏",
+                "You really gonna say no to this? 🥲",
+                "Come on, just say yes! 😘",
+                "Fine, but I still love you! 😆"
+            ];
+            
+            if (counter < messages.length) {
+                alert(messages[counter]);
+                counter++;
+            } else {
+                alert("Okay okay, you win... but I still want you as my Valentine! 💘");
+            }
+        }
+    </script>
+
+</body>
+</html>
