@@ -15,6 +15,7 @@
             align-items: center;
             height: 100vh;
             overflow: hidden;
+            position: relative;
         }
         h1 {
             color: #ff3366;
@@ -49,6 +50,7 @@
         #noBtn {
             background-color: #cccccc;
             color: black;
+            position: relative;
         }
         button:hover {
             transform: scale(1.1);
@@ -65,7 +67,8 @@
 
     <script>
         function yesClicked() {
-            document.body.innerHTML = '<h1>YAY! 🎉💖 I knew you'd say yes! 🥰</h1>';
+            document.body.innerHTML = '<h1>YAY! 🎉💖 I knew you\'d say yes! 🥰</h1>';
+            confettiEffect();
         }
         
         let noCount = 0;
@@ -84,10 +87,28 @@
                 noCount++;
             } else {
                 document.getElementById("noBtn").innerText = "You have no escape now! 😈";
-                document.getElementById("noBtn").style.position = "absolute";
-                document.getElementById("noBtn").style.left = Math.random() * window.innerWidth + "px";
-                document.getElementById("noBtn").style.top = Math.random() * window.innerHeight + "px";
+                let noBtn = document.getElementById("noBtn");
+                noBtn.style.position = "absolute";
+                noBtn.style.left = Math.random() * (window.innerWidth - 100) + "px";
+                noBtn.style.top = Math.random() * (window.innerHeight - 50) + "px";
             }
+        }
+
+        function confettiEffect() {
+            const confetti = document.createElement("div");
+            confetti.innerHTML = "🎊";
+            confetti.style.position = "absolute";
+            confetti.style.fontSize = "2rem";
+            confetti.style.animation = "fall 2s linear infinite";
+            document.body.appendChild(confetti);
+            
+            setInterval(() => {
+                let clone = confetti.cloneNode(true);
+                clone.style.left = Math.random() * window.innerWidth + "px";
+                clone.style.top = "0px";
+                document.body.appendChild(clone);
+                setTimeout(() => clone.remove(), 2000);
+            }, 200);
         }
     </script>
 </body>
